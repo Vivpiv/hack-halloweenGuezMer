@@ -6,7 +6,12 @@
  * Time: 10:30
  */
 
-class HomeController
-{
+namespace Controller;
 
+class HomeController extends \Controller\AbstractController
+{
+    public function index()
+    {
+        return $this->twig->render('layout.html.twig');
+    }
 }

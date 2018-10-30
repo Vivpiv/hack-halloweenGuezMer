@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wilder7
- * Date: 30/10/18
- * Time: 10:29
- */
+
+define('APP_DB_USER', 'Yakuzo');
+define('APP_DB_PWD', 'YakuvsRoman');
+define('APP_DB_HOST', 'localhost');
+define('APP_DB_NAME', 'hackaton');
