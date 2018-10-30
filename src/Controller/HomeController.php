@@ -6,6 +6,8 @@
  * Time: 10:30
  */
 
+namespace Controller;
+
 class HomeController extends \Controller\AbstractController
 {
     public function index()
