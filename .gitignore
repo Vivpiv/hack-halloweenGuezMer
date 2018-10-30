@@ -3,5 +3,3 @@
 *.cache
 app/db.php
 .idea/
-
-composer.lock
