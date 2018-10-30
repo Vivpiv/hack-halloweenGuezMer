@@ -1,7 +1,6 @@
 // Fonction de callback en cas de succès
 
 function geoSucess(position){
-    
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
 
