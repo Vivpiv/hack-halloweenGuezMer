@@ -1,5 +1,6 @@
 <?php
 /**
+<<<<<<< HEAD
  * Created by PhpStorm.
  * User: wilder7
  * Date: 30/10/18
@@ -7,7 +8,8 @@
  */
 
 $routes = [
-    'Maps' => [ // Controller
-        ['maps', '/', 'GET'] // action, url, method
-        ]
-        ];
+    'Home' => [ // Controller
+        ['index', '/', 'GET'], // action, url, method
+    ]
+];
+
