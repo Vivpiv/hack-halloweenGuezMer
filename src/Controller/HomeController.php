@@ -14,4 +14,8 @@ class HomeController extends \Controller\AbstractController
     {
         return $this->twig->render('layout.html.twig');
     }
+    public function homepage()
+    {
+        return $this->twig->render('homepage.html.twig');
+    }
 }

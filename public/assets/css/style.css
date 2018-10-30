@@ -1,0 +1,23 @@
+.background{
+    background-image: url("../images/halloween.jpg");
+    background-size: cover;
+    width: 100vh;
+}
+@font-face {
+    font-family: "Halloween";
+    src: url("/assets/police/Halloweentoo.ttf");
+}
+.hallo{
+    font-size: 60px;
+    font-family: Halloween;
+    color: #FF9100;
+}
+a.bouton3 {
+    font-weight:bold;
+    padding: 10px 30px;
+    background: #FC7F3C;
+    color: white;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+}
