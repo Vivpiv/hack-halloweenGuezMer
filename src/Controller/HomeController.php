@@ -19,4 +19,8 @@ class HomeController extends AbstractController
         $jean = json_decode($res->getBody(), true);
         return $this->twig->render('candy.html.twig', ['res' => $jean['products']]);
     }
+    public function homepage()
+    {
+        return $this->twig->render('homepage.html.twig');
+    }
 }
