@@ -10,6 +10,10 @@
 $routes = [
     'Home' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
+    ],
+
+    'Maps' => [ // Controller
+        ['maps', '/maps', 'GET'], // action, url, method
     ]
 ];
 

@@ -8,9 +8,8 @@
 
 namespace Controller;
 
-use twig
 
-class MapsController
+class MapsController extends AbstractController
 {
     public function maps()
     {
