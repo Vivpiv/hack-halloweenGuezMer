@@ -13,7 +13,7 @@ $routes = [
     ],
 
     'Maps' => [ // Controller
-        ['maps', '/maps', 'GET'], // action, url, method
+        ['maps', '/maps', ['GET','POST']], // action, url, method
     ]
 ];
 
