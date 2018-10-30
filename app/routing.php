@@ -12,6 +12,7 @@
 $routes = [
     'Home' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
+        ['homepage', '/home', 'GET'],
     ]
 ];
 
