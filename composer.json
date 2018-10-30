@@ -1,0 +1,17 @@
+{
+    "name": "wilder7/hackaton",
+    "require": {
+        "twig/twig": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "":"src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tom",
+            "email": "tom.guibard45@gmail.com"
+        }
+    ]
+}
