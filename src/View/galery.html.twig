@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Bonbondex{% endblock %}
+
+{% block stylesheet %}<link rel="stylesheet" href="/assets/styleGalery.css">{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class=" title">
+        <h1>Bonbondex,   <span class="small">attrapez-les tous !</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            {% for produit in res %}
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="img-fluid" src="{{ produit.image_url }}" alt="">
+                        <div class="card-body">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-8">
+                                    <h5 class="card-title">{{ produit.product_name }}</h5>
+                                </div>
+                                <div class="col-4">
+                                    <a href="#" class="btn">Je l'ai !</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

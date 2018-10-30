@@ -1,0 +1,31 @@
+body{
+    background-image:url('images/halloween.jpg');
+    background-attachment: fixed;
+}
+.navbar{
+    background-color: #fe5522;
+    font-size:1.5em;
+}
+.nav-link, .navbar-brand{
+    color:white;
+}
+.card{
+    min-height:470px;
+    max-height:470px;
+    margin-top:20px;
+    background:black;
+    color: #fe5522;
+    border:none;
+    box-shadow: 8px 8px 8px #fe5522;
+}
+
+.img-fluid{
+    min-height:350px;
+    max-height:350px;
+}
+section {
+    padding-top: 20px;
+}
+.title {
+    color: #fe5522;
+}

@@ -8,10 +8,16 @@
 
 namespace Controller;
 
+use GuzzleHttp\Client;
+
 class HomeController extends \Controller\AbstractController
 {
     public function index()
     {
-        return $this->twig->render('layout.html.twig');
+        $client = new Client();
+        $res = $client->request('GET', 'https://ssl-api.openfoodfacts.org/country/france/category/candies.json');
+        $coucou = json_decode($res->getBody(), TRUE);
+         return $this->twig->render('galery.html.twig', ['res' => $coucou['products']]);
+
     }
 }
