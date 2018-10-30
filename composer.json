@@ -10,8 +10,23 @@
     },
     "authors": [
         {
-            "name": "tom",
-            "email": "tom.guibard45@gmail.com"
-        }
+            "name": "tom"
+        },
+
+        {
+            "name": "thomas"
+        },
+
+        {
+            "name": "billy"
+        },
+
+        {
+            "name": "vincent"
+        },
+
+        {
+            "name": "vivien"
+        },
     ]
 }
