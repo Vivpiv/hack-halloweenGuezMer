@@ -35,7 +35,6 @@ function geoSucess(position){
         // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
         initMap();
     };
-
 }
 
 
@@ -45,6 +44,7 @@ function geoFail() { // Ceci s'exécutera si l'utilisateur refuse la géolocalis
 
 if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(geoSucess, geoFail);
+    //location.reload();
 }
 
 
