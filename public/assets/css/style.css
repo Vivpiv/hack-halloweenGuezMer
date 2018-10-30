@@ -49,10 +49,10 @@ body{
     min-height:470px;
     max-height:470px;
     margin-top:20px;
-    background:black;
-    color: #fe5522;
+    background: black;
+    color: white;
     border:none;
-    box-shadow: 8px 8px 8px #fe5522;
+    box-shadow: 8px 8px 12px #ffa144;
 }
 
 .img-fluid{
@@ -75,3 +75,21 @@ section {
     align-items: center;
 }
 
+.btn-nikemouk{
+    background-color: #fe5522;
+    color: white;
+    border: none;
+
+}
+.btn-nikemouk:hover{
+    background-color: #fe5522;
+    color: white;
+    border: none;
+
+}
+.btn-ai{
+    margin-left: 6vw;
+    color:white;
+    text-shadow: 8px 8px 12px #ffa144;
+    background-color: transparent;
+}
