@@ -1,0 +1,10 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+{% for candy in res %}
+    <img src="{{ candy.image_url }}" alt=""/>
+    <h1>{{ candy.product_name }}</h1>
+{% endfor %}
+
+{% endblock %}
