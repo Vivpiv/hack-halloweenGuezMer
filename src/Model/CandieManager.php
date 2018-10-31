@@ -25,6 +25,6 @@ class CandieManager extends AbstractManager
     
     public function selectAll(): array
     {
-        return $this->pdo->query('SELECT adress FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
+        return $this->pdo->query('SELECT adress, name_product, url_product FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
     }
 }
