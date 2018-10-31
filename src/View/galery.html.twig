@@ -17,7 +17,7 @@
             <div class="row justify-content-center">
                 {% for produit in res %}
                     <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
+                        <div class="card m-4">
                             <img class="img-fluid" src="{{ produit.image_url }}" alt="">
                             <div class="card-body">
                                 <div class="row">
@@ -34,7 +34,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content modalfond">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title"
+                                                    <h5 class="modal-title modaltxt"
                                                         id="exampleModalLongTitle">{{ produit.product_name }}</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -44,7 +44,7 @@
                                                 <div class="modal-body">
                                                     <form method="post">
                                                         <div class="form-group">
-                                                            <label for="adress">Adress : </label>
+                                                            <label class="modaltxt" for="adress">Adress : </label>
                                                             <input type="text" class="form-control" id="adress"
                                                                    name="adress" placeholder="Enter adress">
                                                             <input type="hidden" value="{{ produit.id }}"
