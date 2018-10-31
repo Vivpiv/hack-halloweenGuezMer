@@ -8,8 +8,10 @@
 
 namespace Model;
 
+use Model\Candie;
 
-class MapsManager extends AbstractManager
+
+class CandieManager extends AbstractManager
 {
     const TABLE = 'candie';
     
@@ -19,5 +21,10 @@ class MapsManager extends AbstractManager
     public function __construct(\PDO $pdo)
     {
         parent::__construct(self::TABLE, $pdo);
+    }
+    
+    public function selectAll(): array
+    {
+        return $this->pdo->query('SELECT adress FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
     }
 }

@@ -12,7 +12,7 @@ $routes = [
         ['index', '/', 'GET'], // action, url, method
     ],
 
-    'Maps' => [ // Controller
+    'Candie' => [ // Controller
         ['maps', '/maps', ['GET','POST']], // action, url, method
     ]
 ];

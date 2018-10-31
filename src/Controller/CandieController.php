@@ -9,19 +9,19 @@
 namespace Controller;
 
 use GuzzleHttp\Client;
-use Model\MapsManager;
+use Model\CandieManager;
 
-class MapsController extends AbstractController
+class CandieController extends AbstractController
 {
     
     public function maps()
     {
-        $mapsManager= new MapsManager($this->getPdo());
+        $mapsManager= new CandieManager($this->getPdo());
         $mapAdresses = $mapsManager->selectAll();
         $adressesCoordinates=[];
-        
         foreach ($mapAdresses as $key => $value) {
-            $query="https://api-adresse.data.gouv.fr/search/?q=".$value;
+            $cool=str_replace(' ','+',$value['adress']);
+            $query="https://api-adresse.data.gouv.fr/search/?q=".$cool;
             $client = new Client();
             $res = $client->request('GET', $query);
             $res=json_decode($res->getBody(), TRUE);
