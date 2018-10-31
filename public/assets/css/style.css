@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "Halloween";
+    src: url("/assets/police/Halloweentoo.ttf");
+}
+.hallo{
+    font-size: 60px;
+    font-family: 'Halloween', Serif, sans-serif;
+    color: #fe5522;
+    margin-bottom: 50px;
+}
+a.btn-hallo {
+    font-weight:bold;
+    color: white;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    padding: 16px;
+}
+.btn-hallo {
+    background-color: #fe5522;
+    width: 30vw;
+    height: 60px;
+    margin-top: 35px;
+}
+.btn-hallo:hover {
+    background-color: #FE7531;
+}
+@media all and (max-width: 600px){
+    .hallo {
+        font-size: 55px;
+        margin-bottom: 10px;
+    }
+    .btn {
+        width: 65vw;
+    }
+}
+body{
+    background-image:url('../images/halloween.jpg');
+    background-attachment: fixed;
+}
+.navbar{
+    background-color: #fe5522;
+    font-size:1.5em;
+}
+.nav-link, .navbar-brand{
+    color:white;
+}
+.card{
+    min-height:470px;
+    max-height:470px;
+    margin-top:20px;
+    background: black;
+    color: #fe5522;
+    border:none;
+    box-shadow: 4px 4px 8px #FE7531;
+}
+
+.img-fluid{
+    min-height:350px;
+    max-height:350px;
+}
+section {
+    padding-top: 20px;
+}
+.title {
+    color: #fe5522;
+}
+.homepage {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.btn-nikemouk{
+    background-color: #fe5522;
+    color: white;
+    border: none;
+
+}
+.btn-nikemouk:hover{
+    background-color: black;
+    color: white;
+    border: none;
+
+}
+.btn-ai {
+    background-color: #fe5522;
+    color: white;
+    margin: 2px;
+}
+.btn-ai:hover {
+    background-color: #FE7531;
+}
+.pagination {
+    margin: 20px;
+}
+.modalfond {
+    background: linear-gradient(217deg, rgba(254,117,49,1), rgba(0,0,0,1) 65%);
+}
+.btn-modal {
+    background-color: #fe5522;
+    color: white;
+}
+.btn-modal:hover {
+    background-color: #FE7531;
+}

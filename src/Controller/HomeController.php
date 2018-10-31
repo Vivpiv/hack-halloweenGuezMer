@@ -1,17 +1,19 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: wilder7
+ * User: wilder2
  * Date: 30/10/18
- * Time: 10:30
+ * Time: 12:00
  */
 
 namespace Controller;
 
-class HomeController extends \Controller\AbstractController
+use GuzzleHttp\Client;
+
+class HomeController extends AbstractController
 {
     public function index()
     {
-        return $this->twig->render('layout.html.twig');
+        return $this->twig->render('homepage.html.twig');
     }
 }
