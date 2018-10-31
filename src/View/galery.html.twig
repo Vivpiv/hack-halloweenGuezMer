@@ -2,48 +2,56 @@
 
 {% block title %}Bonbondex{% endblock %}
 
-{% block stylesheet %}<link rel="stylesheet" href="/assets/styleGalery.css">{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/styleGalery.css">{% endblock %}
 
 {% block content %}
-<section>
-    <div class="container">
-        <div class=" title">
-        <h1>Bonbondex,   <span class="small">attrapez-les tous !</span></h1>
-        </div>
-        <div class="row justify-content-center">
-            {% for produit in res %}
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="img-fluid" src="{{ produit.image_url }}" alt="">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center">
-                                <div class="col-8">
-                                    <h5 class="card-title">{{ produit.product_name }}</h5>
-                                </div>
-                                <div class="col-4">
-                                    <button class="btn" type="button" role="button" data-toggle="modal" data-target="#modal{{ produit.id }}">Je l'ai !</button>
-                                </div>
-                                <div class="modal fade" id="modal{{ produit.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">{{ produit.product_name}}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="post">
-                                                    <div class="form-group">
-                                                        <label for="adress">Adress : </label>
-                                                        <input type="text" class="form-control" id="adress" name="adress" placeholder="Enter adress">
-                                                        <input type="hidden" value="{{ produit.id }}" name="codebarre" id="{{ produit.id }}">
+    <section>
+        <div class="container">
+            <div class=" title">
+                <h1>Bonbondex, <span class="small">attrapez-les tous !</span></h1>
+            </div>
+            <div class="row justify-content-center">
+                {% for produit in res %}
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card">
+                            <img class="img-fluid" src="{{ produit.image_url }}" alt="">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-8">
+                                        <h5 class="card-title">{{ produit.product_name }}</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn" type="button" role="button" data-toggle="modal"
+                                                data-target="#modal{{ produit.id }}">Je l'ai !
+                                        </button>
+                                    </div>
+                                    <div class="modal fade" id="modal{{ produit.id }}" tabindex="-1" role="dialog"
+                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title"
+                                                        id="exampleModalLongTitle">{{ produit.product_name }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="post">
+                                                        <div class="form-group">
+                                                            <label for="adress">Adress : </label>
+                                                            <input type="text" class="form-control" id="adress"
+                                                                   name="adress" placeholder="Enter adress">
+                                                            <input type="hidden" value="{{ produit.id }}"
+                                                                   name="codebarre" id="{{ produit.id }}">
 
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Validationner</button>
+                                                        </div>
+                                                        <input type="submit" class="btn btn-primary"
+                                                               value="Validationner"/>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -51,18 +59,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="?button=previous">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="?button=1">1</a></li>
-                    <li class="page-item"><a class="page-link" href="?button=2">2</a></li>
-                    <li class="page-item"><a class="page-link" href="?button=3">3</a></li>
-                    <li class="page-item"><a class="page-link" href="?button=next">Next</a></li>
-                </ul>
-            </nav>
+                {% endfor %}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="?button=previous">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="?button=1">1</a></li>
+                        <li class="page-item"><a class="page-link" href="?button=2">2</a></li>
+                        <li class="page-item"><a class="page-link" href="?button=3">3</a></li>
+                        <li class="page-item"><a class="page-link" href="?button=next">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
