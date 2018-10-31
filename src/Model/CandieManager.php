@@ -32,4 +32,11 @@ class CandieManager extends AbstractManager
     {
         return $this->pdo->query('SELECT COUNT(id) as id FROM ' . $this->table . ' WHERE have_candie=true', \PDO::FETCH_ASSOC)->fetchAll();
     }
+
+    public function selectEan(): array
+    {
+        $statement = $this->pdo->query("SELECT ean FROM $this->table");
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        return $statement->fetchAll();
+    }
 }

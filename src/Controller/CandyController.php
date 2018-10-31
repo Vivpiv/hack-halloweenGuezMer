@@ -10,6 +10,7 @@ namespace Controller;
 
 use GuzzleHttp\Client;
 use Model\Candie;
+use Model\CandieManager;
 use Model\CandyManager;
 
 class CandyController extends \Controller\AbstractController
@@ -35,7 +36,14 @@ class CandyController extends \Controller\AbstractController
         }
         $res = $client->request('GET', "https://ssl-api.openfoodfacts.org/country/france/category/candies/$a.json");
         $coucou = json_decode($res->getBody(), TRUE);
-        return $this->twig->render('galery.html.twig', ['res' => $coucou['products']]);
+        $candieManager = new CandieManager($this->getPdo());;
+
+        $candies = $candieManager->selectEan();
+        return $this->twig->render('galery.html.twig', [
+            'res' => $coucou['products'],
+            'candies' => $candies,
+        ]);
 
     }
+
 }
