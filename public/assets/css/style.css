@@ -108,3 +108,13 @@ section {
 .btn-modal:hover {
     background-color: #FE7531;
 }
+.ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Poor Story', cursive;
+    font-size: 28px;
+}
+.title-galery {
+    font-family: 'Halloween', sans-serif;
+    font-size: 60px;
+}
