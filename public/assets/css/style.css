@@ -162,8 +162,16 @@ section {
     background-color:#FE7531;
     text-align:center;
     border-radius:100%;
-    width:132px;
-    height:132px;
-    margin-top:21px;
-    padding-top:25px;
+    width: 127px;
+    height: 127px;
+    margin-top: 20px;
+    padding-top: 22px;
+}
+.rond-bis{
+    margin-right: -11vw;
+}
+
+.coucou{
+    margin-left: 8vw;
+
 }
