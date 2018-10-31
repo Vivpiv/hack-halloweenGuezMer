@@ -9,6 +9,8 @@
 namespace Controller;
 
 use GuzzleHttp\Client;
+use Model\Candie;
+use Model\CandyManager;
 
 class CandyController extends \Controller\AbstractController
 {
@@ -28,6 +30,16 @@ class CandyController extends \Controller\AbstractController
             } else {
                 $a = $_GET['button'];
             }
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $candieManager = new CandyManager($this->getPdo());
+            $candie = new Candie;
+            $candie->setAdress($_POST['adress']);
+            $candie->setEan($_POST['codebarre']);
+            $candieManager->insert($candie);
+            header('Location:/candy');
+            exit();
         }
         $res = $client->request('GET', "https://ssl-api.openfoodfacts.org/country/france/category/candies/$a.json");
         $coucou = json_decode($res->getBody(), TRUE);
