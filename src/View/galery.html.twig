@@ -17,19 +17,19 @@
                         <div class="card">
                             <img class="img-fluid" src="{{ produit.image_url }}" alt="">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center">
-                                    <div class="col-8">
-                                        <h5 class="card-title">{{ produit.product_name }}</h5>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="card-title text-center">{{ produit.product_name }}</h5>
                                     </div>
-                                    <div class="col-4">
-                                        <button class="btn" type="button" role="button" data-toggle="modal"
+                                    <div class="col-12 btn-j text-center">
+                                        <button class="btn btn-ai" type="button" role="button" data-toggle="modal"
                                                 data-target="#modal{{ produit.id }}">Je l'ai !
                                         </button>
                                     </div>
                                     <div class="modal fade" id="modal{{ produit.id }}" tabindex="-1" role="dialog"
                                          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
+                                            <div class="modal-content modalfond">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title"
                                                         id="exampleModalLongTitle">{{ produit.product_name }}</h5>
@@ -48,8 +48,10 @@
                                                                    name="codebarre" id="{{ produit.id }}">
 
                                                         </div>
-                                                        <input type="submit" class="btn btn-primary"
-                                                               value="Validationner"/>
+                                                        <div class="text-center">
+                                                            <input type="submit" class="btn btn-modal"
+                                                                   value="Validationner"/>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -60,16 +62,18 @@
                         </div>
                     </div>
                 {% endfor %}
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="?button=previous">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="?button=1">1</a></li>
-                        <li class="page-item"><a class="page-link" href="?button=2">2</a></li>
-                        <li class="page-item"><a class="page-link" href="?button=3">3</a></li>
-                        <li class="page-item"><a class="page-link" href="?button=next">Next</a></li>
-                    </ul>
-                </nav>
             </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link btn-nikemouk" href="?button=previous">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link btn-nikemouk" href="?button=1">1</a></li>
+                    <li class="page-item"><a class="page-link btn-nikemouk" href="?button=2">2</a></li>
+                    <li class="page-item"><a class="page-link btn-nikemouk" href="?button=3">3</a></li>
+                    <li class="page-item"><a class="page-link btn-nikemouk" href="?button=next">Next</a></li>
+                </ul>
+            </nav>
+
         </div>
     </section>
 {% endblock %}
