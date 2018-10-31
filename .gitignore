@@ -1,5 +1,9 @@
 /vendor/
+
+.idea
+/app/db.php
 /temp/*
 *.cache
 /app/db.php
 .idea/
+
