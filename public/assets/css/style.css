@@ -111,6 +111,9 @@ section {
 .btn-modal:hover {
     background-color: #FE7531;
 }
+.none {
+    filter: grayscale(100%);
+}
 .cool {
     margin-top:35px;
     width:200px;
