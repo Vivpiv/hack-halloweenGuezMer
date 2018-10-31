@@ -24,7 +24,7 @@ class CandyManager extends AbstractManager
 
     public function insert(Candie $candie)
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (ean,adress) VALUES (:ean, :adress)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (ean,adress,have_candie) VALUES (:ean, :adress,1)");
         $statement->bindValue('ean', $candie->getEan(), \PDO::PARAM_STR);
         $statement->bindValue('adress', $candie->getAdress(), \PDO::PARAM_STR);
 
