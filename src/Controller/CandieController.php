@@ -18,6 +18,7 @@ class CandieController extends AbstractController
     {
         $mapsManager= new CandieManager($this->getPdo());
         $mapAdresses = $mapsManager->selectAll();
+        $compteur = $mapsManager->Compteur();
         $adressesCoordinates=[];
         foreach ($mapAdresses as $key => $value) {
             $cool=str_replace(' ','+',$value['adress']);
@@ -30,7 +31,6 @@ class CandieController extends AbstractController
             $lon=$res['features'][0]['geometry']['coordinates'][0];
             $adressesCoordinates[]=$coordinates;
         }
-        
-        return $this->twig->render('maps.html.twig', ['adresses' => $adressesCoordinates]);
+        return $this->twig->render('maps.html.twig', ['adresses' => $adressesCoordinates, 'compteur' => $compteur[0]]);
     }
 }

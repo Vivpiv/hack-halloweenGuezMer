@@ -18,8 +18,22 @@
 
         <!--COMPTEUR A INSERER-->
         <div class="row justify-content-center">
-            <div class="col-9">
-                BONBON nb: 0
+            <div class="col-3">
+                <button type="button" class="btn cool">
+                    Nb Bonbondex <span class="badge badge-light">{{ compteur.id }}</span>
+                    <span class="sr-only">unread messages</span>
+                </button>
+            </div>
+            <div class="col-3">
+                {% if  compteur.id  <= 5 %}
+                    <span class="badge badgecool">Roi de la maison</span>
+                {% elseif compteur.id > 5 and  compteur.id  <= 10 %}
+                    <span class="badge badgecool">Roi de la rue</span>
+                {% elseif compteur.id > 10 and compteur.id <= 25 %}
+                    <span class="badge badgecool">Roi de la ville</span>
+                {% elseif  compteur.id > 25 %}
+                    <span class="badge badgecool">Roi des GuezMer</span>
+                {% endif %}
             </div>
         </div>
     </div>

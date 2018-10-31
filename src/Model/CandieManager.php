@@ -27,4 +27,9 @@ class CandieManager extends AbstractManager
     {
         return $this->pdo->query('SELECT adress FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
     }
+
+    public function Compteur(): array
+    {
+        return $this->pdo->query('SELECT COUNT(id) as id FROM ' . $this->table . ' WHERE have_candie=true', \PDO::FETCH_ASSOC)->fetchAll();
+    }
 }

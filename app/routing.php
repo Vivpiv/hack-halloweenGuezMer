@@ -14,7 +14,7 @@ $routes = [
         ['maps', '/maps', ['GET','POST']], // action, url, method
     ],
     'Candy' => [
-    ['index', '/candy', ['GET', 'POST']],
-]
+        ['index', '/candy', ['GET', 'POST']],
+    ]
 ];
 
