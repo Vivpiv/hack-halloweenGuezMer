@@ -111,6 +111,21 @@ section {
 .btn-modal:hover {
     background-color: #FE7531;
 }
+.cool {
+    margin-top:35px;
+    width:200px;
+    font-size:1.2em;
+    background-color: #FE7531;
+}
+.badgecool{
+    margin-top:20px;
+    width:auto;
+    height:80px;
+    font-size:1.5em;
+    background-color:#FE7531;
+    align-items:end;
+    padding-top:30px;
+}
 .ellipse {
     white-space: nowrap;
     overflow: hidden;
