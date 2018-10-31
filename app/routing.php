@@ -14,8 +14,7 @@ $routes = [
         ['index', '/', 'GET'], // action, url, method
     ],
     'Candy' => [
-        ['index', '/candy', 'GET'],
-        ['homepage', '/home', 'GET'],
+        ['index', '/candy', ['GET', 'POST']],
     ]
 ];
 

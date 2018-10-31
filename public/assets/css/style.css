@@ -49,10 +49,10 @@ body{
     min-height:470px;
     max-height:470px;
     margin-top:20px;
-    background:black;
+    background: black;
     color: #fe5522;
     border:none;
-    box-shadow: 8px 8px 8px #fe5522;
+    box-shadow: 4px 4px 8px #FE7531;
 }
 
 .img-fluid{
@@ -75,3 +75,36 @@ section {
     align-items: center;
 }
 
+.btn-nikemouk{
+    background-color: #fe5522;
+    color: white;
+    border: none;
+
+}
+.btn-nikemouk:hover{
+    background-color: black;
+    color: white;
+    border: none;
+
+}
+.btn-ai {
+    background-color: #fe5522;
+    color: white;
+    margin: 2px;
+}
+.btn-ai:hover {
+    background-color: #FE7531;
+}
+.pagination {
+    margin: 20px;
+}
+.modalfond {
+    background: linear-gradient(217deg, rgba(254,117,49,1), rgba(0,0,0,1) 65%);
+}
+.btn-modal {
+    background-color: #fe5522;
+    color: white;
+}
+.btn-modal:hover {
+    background-color: #FE7531;
+}
