@@ -157,3 +157,13 @@ section {
     font-family: 'Poor Story', sans-serif;
     font-size: 25px;
 }
+.rond{
+    font-size:2em;
+    background-color:#FE7531;
+    text-align:center;
+    border-radius:100%;
+    width:132px;
+    height:132px;
+    margin-top:21px;
+    padding-top:25px;
+}
