@@ -1,0 +1,85 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin=""/>
+    <link rel="stylesheet" href="/assets/css/plan.css">
+{% endblock %}
+{% block content %}
+
+    <div class="container pt-3">
+        <div class=" row">
+            <div class="col">
+                <div id="map"></div>
+            </div>
+        </div>
+
+
+        <!--COMPTEUR A INSERER-->
+        <div class="row justify-content-center">
+            <div class="col-9">
+                BONBON nb: 0
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="/assets/js/plan.js"></script>
+    <script>
+
+        function geoSucess(position){
+            // setTimeout( function(){ self.location.reload()}, 7000)
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+
+            let macarte = null;
+
+            {% set myVal = 0 %}
+            let villes = {
+            {% for adress in adresses %}
+                        "{{ myVal }}": { "lat": {{ adress.1 }}, "lon": {{ adress.0 }} },
+                {% set myVal = myVal + 1 %}
+            {% endfor %}
+                        };
+
+                function initMap() {
+                // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                macarte = L.map('map').setView([lat, lon], 11);
+                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                    // Il est toujours bien de laisser le lien vers la source des données
+                    attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                    minZoom: 15,
+                    maxZoom: 40
+                }).addTo(macarte);
+
+                var marker = L.marker([lat, lon]).addTo(macarte);
+                for (ville in villes) {
+                    var marker = L.marker([villes[ville].lat, villes[ville].lon]).addTo(macarte);
+                }
+            }
+
+            window.onload = function(){
+
+                // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+                initMap();
+            };
+
+        }
+
+
+        function geoFail() { // Ceci s'exécutera si l'utilisateur refuse la géolocalisation
+            console.log("refus");
+        }
+
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(geoSucess, geoFail);
+        }
+
+
+    </script>
+
+{% endblock %}
