@@ -17,19 +17,9 @@ class CandyController extends \Controller\AbstractController
     public function index()
     {
         $client = new Client();
-        $a=1;
+        $a = 1;
         if (isset($_GET['button'])) {
-            if ($_GET['button'] == 'previous') {
-                if (($a-1) <= 0) {
-                    $a = 1;
-                } else {
-                    $a--;
-                }
-            } elseif ($_GET['button'] == 'next') {
-                $a++;
-            } else {
-                $a = $_GET['button'];
-            }
+            $a = $_GET['button'];
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -37,6 +27,8 @@ class CandyController extends \Controller\AbstractController
             $candie = new Candie;
             $candie->setAdress($_POST['adress']);
             $candie->setEan($_POST['codebarre']);
+            $candie->setNameProduct($_POST['name_product']);
+            $candie->setUrlProduct($_POST['small_img']);
             $candieManager->insert($candie);
             header('Location:/candy');
             exit();

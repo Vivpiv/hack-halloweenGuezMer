@@ -9,7 +9,7 @@
     <section>
         <div class="container">
             <div class=" title">
-                <h1>Bonbondex, <span class="small">attrapez-les tous !</span></h1>
+                <h1 class="title-galery">Bonbondex, <span class="small">attrapez-les tous !</span></h1>
             </div>
             <div class="row justify-content-center">
                 {% for produit in res %}
@@ -19,7 +19,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <h5 class="card-title text-center">{{ produit.product_name }}</h5>
+                                        <h5 class="card-title ellipse text-center">{{ produit.product_name }}</h5>
                                     </div>
                                     <div class="col-12 btn-j text-center">
                                         <button class="btn btn-ai" type="button" role="button" data-toggle="modal"
@@ -46,6 +46,10 @@
                                                                    name="adress" placeholder="Enter adress">
                                                             <input type="hidden" value="{{ produit.id }}"
                                                                    name="codebarre" id="{{ produit.id }}">
+                                                            <input type="hidden" value="{{ produit.product_name }}"
+                                                                   name="name_product" id="{{ produit.product_name }}">
+                                                            <input type="hidden" value="{{ produit.image_url }}"
+                                                                   name="small_img" id="{{ produit.image_url }}">
 
                                                         </div>
                                                         <div class="text-center">

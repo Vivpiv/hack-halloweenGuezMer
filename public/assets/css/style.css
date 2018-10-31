@@ -123,3 +123,13 @@ section {
     align-items:end;
     padding-top:30px;
 }
+.ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Poor Story', cursive;
+    font-size: 28px;
+}
+.title-galery {
+    font-family: 'Halloween', sans-serif;
+    font-size: 60px;
+}
