@@ -117,4 +117,6 @@ section {
 .title-galery {
     font-family: 'Halloween', sans-serif;
     font-size: 60px;
+    text-align: center;
+    margin: 20px;
 }
