@@ -21,6 +21,42 @@ class Candie
 
     private $ean;
 
+    private $name_product;
+
+    private $url_product;
+
+    /**
+     * @return mixed
+     */
+    public function getNameProduct()
+    {
+        return $this->name_product;
+    }
+
+    /**
+     * @param mixed $name_product
+     */
+    public function setNameProduct($name_product): void
+    {
+        $this->name_product = $name_product;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrlProduct()
+    {
+        return $this->url_product;
+    }
+
+    /**
+     * @param mixed $url_product
+     */
+    public function setUrlProduct($url_product): void
+    {
+        $this->url_product = $url_product;
+    }
+
     /**
      * @return mixed
      */

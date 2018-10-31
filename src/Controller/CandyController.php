@@ -27,6 +27,8 @@ class CandyController extends \Controller\AbstractController
             $candie = new Candie;
             $candie->setAdress($_POST['adress']);
             $candie->setEan($_POST['codebarre']);
+            $candie->setNameProduct($_POST['name_product']);
+            $candie->setUrlProduct($_POST['small_img']);
             $candieManager->insert($candie);
             header('Location:/candy');
             exit();
