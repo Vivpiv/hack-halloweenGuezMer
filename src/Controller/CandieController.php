@@ -20,6 +20,7 @@ class CandieController extends AbstractController
         $mapAdresses = $mapsManager->selectAll();
         $compteur = $mapsManager->Compteur();
         $adressesCoordinates=[];
+
         foreach ($mapAdresses as $key => $value) {
             $cool=str_replace(' ','+',$value['adress']);
             $query="https://api-adresse.data.gouv.fr/search/?q=".$cool;
@@ -27,9 +28,10 @@ class CandieController extends AbstractController
             $res = $client->request('GET', $query);
             $res=json_decode($res->getBody(), TRUE);
             $coordinates=$res['features'][0]['geometry']['coordinates'];
-            $lat=$res['features'][0]['geometry']['coordinates'][1];
-            $lon=$res['features'][0]['geometry']['coordinates'][0];
+            $coordinates[]=$value['name_product'];
+            $coordinates[]=$value['url_product'];
             $adressesCoordinates[]=$coordinates;
+            
         }
         return $this->twig->render('maps.html.twig', ['adresses' => $adressesCoordinates, 'compteur' => $compteur[0]]);
     }
