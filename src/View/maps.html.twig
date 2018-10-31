@@ -7,21 +7,36 @@
     <link rel="stylesheet" href="/assets/css/plan.css">
 {% endblock %}
 {% block content %}
-
-    <div class="container pt-3">
-        <div class=" row">
-            <div class="col">
+<div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12">
                 <div id="map"></div>
             </div>
         </div>
+</div>
 
-
-        <!--COMPTEUR A INSERER-->
-        <div class="row justify-content-center">
-            <div class="col-9">
-                BONBON nb: 0
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 col-md-3 rond-bis">
+            <div class="rond">
+                <a class="rond">{{ compteur.id }}</a>
             </div>
         </div>
+        <div class="col-6 col-md-3">
+            {% if compteur.id <=5 %}
+                <a data-toggle="popover" data-placement="bottom" title="Badge Roi des Maisons" data-content="Felicitations ! Vous avez reçu ce badge pour avoir commencer l'aventure !" ><img src="assets/images/1.png" class="coucou"/></a>
+            {% elseif compteur.id > 5 and compteur.id <=10 %}
+                <a data-toggle="popover" data-placement="bottom" title="Badge Roi du Quartier" data-content="Felicitations ! Vous avez reçu ce badge pour avoir collectionner plus de 5 bonbons !" ><img src="assets/images/2.png" class="coucou"/></a>
+            {% elseif compteur.id > 10 and compteur.id <=15 %}
+                <a data-toggle="popover" data-placement="bottom" title="Badge Roi des Villes" data-content="Felicitations ! Vous avez reçu ce badge pour avoir collectionner plus de 10 bonbons !" ><img src="assets/images/3.png" class="coucou"/></a>
+            {% elseif compteur.id > 15 %}
+                <a data-toggle="popover" data-placement="bottom" title="Badge Roi des GuezMer" data-content="Felicitations ! Vous avez reçu ce badge pour avoir collectionner plus de 15 bonbons !" ><img src="assets/images/4.png" class="coucou"/></a>
+            {% endif %}
+        </div>
+        <div class="toussa col-12">
+            <a href="/candy" class="title-galery2">Voir le bonbondex</a>
+        </div>
+    </div>
     </div>
 
 {% endblock %}
@@ -29,39 +44,51 @@
 {% block script %}
     <script>
 
-        function geoSucess(position){
+        function geoSucess(position) {
             // setTimeout( function(){ self.location.reload()}, 7000)
             let lat = position.coords.latitude;
             let lon = position.coords.longitude;
 
             let macarte = null;
 
-            {% set myVal = 0 %}
-            let villes = {
-            {% for adress in adresses %}
-                        "{{ myVal }}": { "lat": {{ adress.1 }}, "lon": {{ adress.0 }} },
-                {% set myVal = myVal + 1 %}
-            {% endfor %}
-                        };
 
-                function initMap() {
+            function initMap() {
+                // Nous définissons le dossier qui contiendra les marqueurs
+                var iconBase = '/assets/images/icons/';
                 // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
                 macarte = L.map('map').setView([lat, lon], 11);
                 // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
                 L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                     // Il est toujours bien de laisser le lien vers la source des données
                     attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-                    minZoom: 15,
+                    minZoom: 10,
                     maxZoom: 40
                 }).addTo(macarte);
+                var myIcon1 = L.icon({
+                    iconUrl: iconBase + "location.png",
+                    iconSize: [45, 45],
+                    iconAnchor: [25, 50],
+                    popupAnchor: [-3, -76],
+                });
+                var marker = L.marker([lat, lon], {icon: myIcon1}).addTo(macarte);
 
-                var marker = L.marker([lat, lon]).addTo(macarte);
-                for (ville in villes) {
-                    var marker = L.marker([villes[ville].lat, villes[ville].lon]).addTo(macarte);
-                }
+
+                {% for adress in adresses %}
+                var myIcon = L.icon({
+                    iconUrl: iconBase + "pumpkinSelector.png",
+                    iconSize: [45, 45],
+                    iconAnchor: [25, 50],
+                    popupAnchor: [-3, -76],
+                });
+                var marker = L.marker([{{ adress.1 }}, {{ adress.0 }}], {icon: myIcon}).addTo(macarte);
+
+                marker.bindPopup("<img style=\"height:5rem;\" src=\"{{ adress.3 }}\"><br>{{ adress.2 }}.");
+
+                {% endfor %}
+
             }
 
-            window.onload = function(){
+            window.onload = function () {
 
                 // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
                 initMap();
@@ -74,9 +101,13 @@
             console.log("refus");
         }
 
-        if(navigator.geolocation) {
+        if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(geoSucess, geoFail);
         }
+
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
 
 
     </script>

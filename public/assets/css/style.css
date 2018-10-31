@@ -14,13 +14,16 @@ a.btn-hallo {
     -webkit-border-radius: 11px;
     -moz-border-radius: 11px;
     border-radius: 11px;
-    padding: 16px;
+    padding: 8px;
 }
 .btn-hallo {
+    font-family: 'Poor Story', sans-serif;
+    font-size: 30px;
     background-color: #fe5522;
     width: 30vw;
     height: 60px;
     margin-top: 35px;
+
 }
 .btn-hallo:hover {
     background-color: #FE7531;
@@ -110,4 +113,68 @@ section {
 }
 .none {
     filter: grayscale(100%);
+}
+.cool {
+    margin-top:35px;
+    width:200px;
+    font-size:1.2em;
+    background-color: #FE7531;
+}
+.badgecool{
+    margin-top:20px;
+    width:auto;
+    height:80px;
+    font-size:1.5em;
+    background-color:#FE7531;
+    align-items:end;
+    padding-top:30px;
+}
+.ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Poor Story', cursive;
+    font-size: 28px;
+}
+.title-galery {
+    font-family: 'Halloween', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    margin: 20px;
+}
+.toussa {
+    text-align: center;
+}
+.title-galery2 {
+    font-family: 'Halloween', sans-serif;
+    color: #fe5522;
+    font-size: 38px;
+    text-align: center;
+    justify-content: center;
+    margin: 15px;
+}
+.title-galery2:hover {
+    color: #FE7531;
+    text-decoration: none;
+}
+.modaltxt {
+    font-family: 'Poor Story', sans-serif;
+    font-size: 25px;
+}
+.rond{
+    font-size:2em;
+    background-color:#FE7531;
+    text-align:center;
+    border-radius:100%;
+    width: 127px;
+    height: 127px;
+    margin-top: 20px;
+    padding-top: 22px;
+}
+.rond-bis{
+    margin-right: -11vw;
+}
+
+.coucou{
+    margin-left: 8vw;
+
 }

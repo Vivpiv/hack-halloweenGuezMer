@@ -9,7 +9,10 @@
     <section>
         <div class="container">
             <div class=" title">
-                <h1>Bonbondex, <span class="small">Attrapez-les tous !</span></h1>
+                <h1 class="title-galery">Bonbondex, <span class="small">Attrapez-les tous !</span></h1>
+                <div class="toussa">
+                    <a href="/maps" class="title-galery2">Retour a la carte</a>
+                </div>
             </div>
             <div class="row justify-content-center">
                 {% for produit in res %}
@@ -24,10 +27,11 @@
                             {% if not match %}
                                 <img class="img-fluid none" src="{{ produit.image_url }}" alt="">
                             {% endif %}
+
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <h5 class="card-title text-center">{{ produit.product_name }}</h5>
+                                        <h5 class="card-title ellipse text-center">{{ produit.product_name }}</h5>
                                     </div>
                                     <div class="col-12 btn-j text-center">
                                         <button class="btn btn-ai" type="button" role="button" data-toggle="modal"
@@ -39,7 +43,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content m1odalfond">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title"
+                                                    <h5 class="modal-title modaltxt"
                                                         id="exampleModalLongTitle">{{ produit.product_name }}</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -49,11 +53,15 @@
                                                 <div class="modal-body">
                                                     <form method="post">
                                                         <div class="form-group">
-                                                            <label for="adress">Adress : </label>
+                                                            <label class="modaltxt" for="adress">Adress : </label>
                                                             <input type="text" class="form-control" id="adress"
                                                                    name="adress" placeholder="Enter adress">
                                                             <input type="hidden" value="{{ produit.id }}"
                                                                    name="codebarre" id="{{ produit.id }}">
+                                                            <input type="hidden" value="{{ produit.product_name }}"
+                                                                   name="name_product" id="{{ produit.product_name }}">
+                                                            <input type="hidden" value="{{ produit.image_url }}"
+                                                                   name="small_img" id="{{ produit.image_url }}">
 
                                                         </div>
                                                         <div class="text-center">

@@ -11,12 +11,19 @@ use Model\CandieManager;
 
 class Candie
 {
-   private $id;
-   private $have_candie;
-   private $ean;
-   private $adress;
-    
-    /**
+    private $id;
+  
+    private $have_candle;
+
+    private $adress;
+
+    private $ean;
+
+    private $name_product;
+
+    private $url_product;
+  
+      /**
      * @return mixed
      */
     public function getId()
@@ -79,4 +86,37 @@ class Candie
     {
         $this->adress = $adress;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNameProduct()
+    {
+        return $this->name_product;
+    }
+
+    /**
+     * @param mixed $name_product
+     */
+    public function setNameProduct($name_product): void
+    {
+        $this->name_product = $name_product;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrlProduct()
+    {
+        return $this->url_product;
+    }
+
+    /**
+     * @param mixed $url_product
+     */
+    public function setUrlProduct($url_product): void
+    {
+        $this->url_product = $url_product;
+    }
+
 }
