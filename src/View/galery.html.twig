@@ -9,13 +9,21 @@
     <section>
         <div class="container">
             <div class=" title">
-                <h1>Bonbondex, <span class="small">attrapez-les tous !</span></h1>
+                <h1>Bonbondex, <span class="small">Attrapez-les tous !</span></h1>
             </div>
             <div class="row justify-content-center">
                 {% for produit in res %}
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
-                            <img class="img-fluid" src="{{ produit.image_url }}" alt="">
+                            {% for candie in candies %}
+                                {% if produit.code == candie.ean %}
+                                    {% set match = true %}
+                                    <img class="img-fluid" src="{{ produit.image_url }}" alt="">
+                                {% endif %}
+                            {% endfor %}
+                            {% if not match %}
+                                <img class="img-fluid none" src="{{ produit.image_url }}" alt="">
+                            {% endif %}
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
@@ -29,7 +37,7 @@
                                     <div class="modal fade" id="modal{{ produit.id }}" tabindex="-1" role="dialog"
                                          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content modalfond">
+                                            <div class="modal-content m1odalfond">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title"
                                                         id="exampleModalLongTitle">{{ produit.product_name }}</h5>
@@ -53,6 +61,7 @@
                                                                    value="Validationner"/>
                                                         </div>
                                                     </form>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -76,4 +85,20 @@
 
         </div>
     </section>
+{% endblock %}
+{% block script %}
+    <script>
+        var elements = document.body.getElementsByClassName('card');
+
+        for (var i = 0; i < elements.length; i++) {
+            var element=elements[i].children[1];
+            if (element.className==="img-fluid none") {
+                element.remove();
+
+                // document.getElementsByClassName("card").removeChild(document.getElementsByClassName("card").children[1]);
+                console.log(elements[i].children[1])
+
+            }
+        }
+    </script>
 {% endblock %}
